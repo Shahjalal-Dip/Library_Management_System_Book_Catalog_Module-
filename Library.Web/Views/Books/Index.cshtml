@@ -1,0 +1,63 @@
+﻿@using Library.Core.Entities
+@using Library.Core.Enums
+@model IEnumerable<Book>
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+<h2>Book Catalog</h2>
+
+<form method="get" class="row mb-3">
+    <div class="col-md-4">
+        <input name="search" class="form-control" placeholder="Search by title or ISBN" />
+    </div>
+
+    <div class="col-md-3">
+        <select name="genre" class="form-control">
+            <option value="">All Genres</option>
+            @foreach (var g in Enum.GetValues(typeof(Genre)))
+            {
+                <option value="@g">@g</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-primary">Search</button>
+    </div>
+
+    <div class="col-md-3 text-end">
+        <a asp-action="Create" class="btn btn-success">Add New Book</a>
+    </div>
+</form>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>Genre</th>
+            <th>Year</th>
+            <th>Available</th>
+            <th style="width:180px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.ISBN</td>
+                <td>@book.Genre</td>
+                <td>@book.PublicationYear</td>
+                <td>@(book.IsAvailable ? "Yes" : "No")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-sm btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

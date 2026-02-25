@@ -1,0 +1,37 @@
+﻿@using Library.Core.Entities
+@model Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<h2>Book Details</h2>
+
+<dl class="row">
+    <dt class="col-sm-3">Title</dt>
+    <dd class="col-sm-9">@Model.Title</dd>
+
+    <dt class="col-sm-3">ISBN</dt>
+    <dd class="col-sm-9">@Model.ISBN</dd>
+
+    <dt class="col-sm-3">Genre</dt>
+    <dd class="col-sm-9">@Model.Genre</dd>
+
+    <dt class="col-sm-3">Publication Year</dt>
+    <dd class="col-sm-9">@Model.PublicationYear</dd>
+
+    <dt class="col-sm-3">Pages</dt>
+    <dd class="col-sm-9">@Model.Pages</dd>
+
+    <dt class="col-sm-3">Available</dt>
+    <dd class="col-sm-9">@Model.IsAvailable</dd>
+
+    <dt class="col-sm-3">Added Date</dt>
+    <dd class="col-sm-9">@Model.AddedDate</dd>
+
+    <dt class="col-sm-3">Last Updated</dt>
+    <dd class="col-sm-9">@Model.LastUpdated</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back</a>
