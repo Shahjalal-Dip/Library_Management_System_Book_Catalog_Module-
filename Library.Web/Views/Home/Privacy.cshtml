@@ -1,6 +1,72 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+
+            <h2 class="card-title mb-3 text-primary">
+                🔐 Privacy Policy
+            </h2>
+
+            <p class="text-muted">
+                Last updated: @DateTime.UtcNow.ToString("MMMM yyyy")
+            </p>
+
+            <hr />
+
+            <p>
+                This Privacy Policy describes how the <strong>Library Book Catalog</strong> application
+                collects, uses, and protects user information.
+                This project is developed for <strong>academic purposes</strong> only.
+            </p>
+
+            <h5 class="mt-4">📘 Information We Collect</h5>
+            <p>
+                This application does not collect personal user information.
+                It only stores book-related data such as:
+            </p>
+            <ul>
+                <li>Book title</li>
+                <li>ISBN number</li>
+                <li>Genre</li>
+                <li>Publication year</li>
+                <li>Availability status</li>
+            </ul>
+
+            <h5 class="mt-4">🔒 Data Usage</h5>
+            <p>
+                The stored data is used solely for demonstrating CRUD operations,
+                repository pattern usage, and MVC architecture concepts
+                as part of an academic assignment.
+            </p>
+
+            <h5 class="mt-4">🛡️ Data Security</h5>
+            <p>
+                Reasonable measures are taken to ensure data integrity.
+                Error handling and validation mechanisms are implemented
+                to prevent invalid or duplicate entries.
+            </p>
+
+            <h5 class="mt-4">⚠️ Disclaimer</h5>
+            <p>
+                This application is not intended for production use.
+                No real user data is collected or processed.
+            </p>
+
+            <h5 class="mt-4">📩 Contact</h5>
+            <p>
+                For any questions regarding this privacy policy,
+                please contact the project author.
+            </p>
+
+            <div class="mt-4">
+                <a asp-controller="Books" asp-action="Index" class="btn btn-outline-primary">
+                    ← Back to Book Catalog
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
